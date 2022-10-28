@@ -25,7 +25,7 @@ def ins_sort(array):
         array[i+1] = key  # putting a[j] or key in the right place
         
         
-arr = [3]
+arr = [2,1,1,0,1,1,9,8]
 print(arr)
 ins_sort(arr)
 print(arr)        

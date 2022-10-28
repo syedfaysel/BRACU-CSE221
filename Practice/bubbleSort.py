@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Oct 16 22:43:23 2022
 
-@author: rajo0
-"""
 
 def  bubbleSort(arr):
     
@@ -13,10 +8,10 @@ def  bubbleSort(arr):
             
             if arr[j] > arr[j+1]:
                 # swap 
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+                arr[j], arr[j+1] = arr[j+1], arr[j]  
                 
 
-a = [5,4,3,2,1]
+a = [2,1,1,0,1,0,7,8]
 bubbleSort(a)
 
 print(a)
