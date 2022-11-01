@@ -1,7 +1,4 @@
 # Merge Sort - Final 
-
-
-
 # Merge two list into one :
     
 def merge(A, B):
@@ -16,11 +13,10 @@ def merge(A, B):
         if A[index_a] < B[index_b]:
             merged_list.append(A[index_a])
             index_a += 1
+
         else:
-            
             merged_list.append(B[index_b])
             index_b += 1
-            
             
     # check if all elements are added or not from both sub list
     if index_a < len_a:
@@ -36,14 +32,6 @@ def merge(A, B):
 
 # complexity of merge function is O(n)
 # ========================
-
-
-# if __name__ == "__main__":
-    
-#     a = [5,6,7]
-#     b = [4,3,5]
-    
-#     print(merge(a, b))
 
 
 
