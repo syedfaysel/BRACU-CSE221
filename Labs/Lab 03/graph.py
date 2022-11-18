@@ -1,7 +1,4 @@
 
-
-
-
 def listGraph():
     with open("graph.txt","r") as f:
         n = int(f.readline())

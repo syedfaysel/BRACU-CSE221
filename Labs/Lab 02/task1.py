@@ -1,4 +1,6 @@
 
+# Task 01: 
+# Test cases passed
 
 with open("input1.txt", 'r') as file_in:
     
@@ -24,7 +26,6 @@ with open("input1.txt", 'r') as file_in:
             while(i>=0 and array[i]<key):
                 
                 array[i+1] = array[i]   # Right shifting elements
-                
                 i = i-1
             
             array[i+1] = key  # putting a[j] or key in the right place

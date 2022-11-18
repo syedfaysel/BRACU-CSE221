@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Oct 22 19:18:13 2022
 
-@author: Rubayat Khan
-"""
+
 # CSE221 Lab 03 Graphs
+
 
 def readFile():
     # reading file from as input
     # change the file name according to yours
     f = open("graph.txt", "r")
-    
+
     # first line of input contains the number of vertices in the graph
     n = f.readline()
     # strip() gets rid of the new line
@@ -19,42 +16,41 @@ def readFile():
     n = n.strip()
     print(type(n))
     # n is of type string. we need to convert it to int
-    n=int(n)
+    n = int(n)
     print(type(n))
-    
+
     # the second line of the file contains the number of connections
     c = f.readline()
     c = c.strip()
     c = int(c)
     print(c)
-    
-    buildGraphUsingDictionary(c,f)
-    
-    buildGraphUsingListofLists(c,f)
 
+    buildGraphUsingDictionary(c, f)
+
+    buildGraphUsingListofLists(c, f)
 
 
 # we want to build an adjacency list like the following
-# A -> B,C 
+# A -> B,C
 # One vertex can be connected to multiple vertices
 # which means multiple values are associated with one vertex
 # one data structure that can be used is a dictionary of lists
 # {A:[B,C]}
 
-def buildGraphUsingDictionary(c,f): 
+def buildGraphUsingDictionary(c, f):
     # creating a dictionary
     graph = {}
     # the following lines of the file contain the connections
     # creating a directed graph (a,b means a is connected to b)
-    
+
     counter = 0
-    while (counter<c):
-        line = f.readline() # reading each libe
-        a,b = line.split(",") # splitting the vertices
-        b = b.strip() # getting rid of \n from the end
-        
+    while (counter < c):
+        line = f.readline()  # reading each libe
+        a, b = line.split(",")  # splitting the vertices
+        b = b.strip()  # getting rid of \n from the end
+
         # we first search if the value inside variable a exists in the dictionary or not
-        if(a in graph):
+        if (a in graph):
             # if yes, then append() the value in b to a
             graph[a].append(b)
         else:
@@ -62,12 +58,12 @@ def buildGraphUsingDictionary(c,f):
             graph[a] = [b]
         print(a)
         print(b)
-        counter+=1    
-    
+        counter += 1
+
     print(graph)
     printGraph(graph, None)
-       
-    
+
+
 # TO DO
 # This method must be completed by you
 # You should code in such a way that the output should be
@@ -79,52 +75,51 @@ def buildGraphUsingDictionary(c,f):
 # this means you have print the same output in the same style for both the datastructures
 # if graph is none then print from listGraph
 # if listGraph is none then print from graph
-def printGraph(graph,listGraph):  
+def printGraph(graph, listGraph):
     # Your code
-    if graph==None:
-        for i in range(len(listGraph)):
-            print(f"{i+1} -> ",end='')
+    if graph == None:
+        for i in range(len(listGraph)-1):
+            print(f"{i+1} -> ", end='')
             for v in listGraph[i]:
-                print(f"{v}", end= ',')
+                print(f"{v}", end=',')
             print()
-            
+
     else:
         for k, v in graph.items():
-            print(f"{k} -> ",end='')
+            print(f"{k} -> ", end='')
             for i in v:
-                print(f"{i}", end= ',')
+                print(f"{i}", end=',')
             print()
 
 # TO DO
 # I have shown you how to build a graph using a dictionary of list
 # now your job is to build a graph using list of lists [[E,B],[C,D]]
 # it means A -> E,B and B -> C,D
-def buildGraphUsingListofLists(c,f):
-    print("using list of lists")
+
+
+def buildGraphUsingListofLists(c, f):
+    # print("using list of lists")
     fp = open("graph.txt", 'r')
     n = fp.readline()
     c = fp.readline()
     c = int(c)
     n = int(n)
-    listGraph = [[] for _ in range(n)] # do not change the name of the variable
-    
+    # do not change the name of the variable
+    listGraph = [[] for _ in range(n)]
+
     # your code
     for i in range(c):
-        new_line = fp.readline() # reading each libe
-        a ,b  = map(int,new_line.split(",")) # splitting the vertices
-        
+        new_line = fp.readline()  # reading each libe
+        a, b = map(int, new_line.split(","))  # splitting the vertices
+
         # we first search if the value inside variable a exists in the dictionary or not
         listGraph[a-1].append(b)
 
-   
-    
     # print(listGraph)
     printGraph(None, listGraph)
-    
-    
-    # printGraph(None,listGraph)
-    # return # delete this line
+
 # ======================Program starts here.========================
+
 
 # read file using the readFile() method
 readFile()

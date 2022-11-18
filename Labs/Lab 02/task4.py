@@ -4,14 +4,14 @@
 queue = []
 
 def enque(item):
-    token = int(item[-1])
+    # token = int(item[-1])
     queue.append(item)
-    for i in range(len(queue)):
-
-        if token < int(queue[i][-1]):
-            for j in range(len(queue)-1,i,-1):
-                queue[j] = queue[j-1]
-            queue[i-1] = item
+    # using bubble Sort
+    for i in range(len(queue)-1):
+        for j in range(len(queue) - i -1):
+            if queue[j][-1] > queue[j+1][-1]:
+                # swap 
+                queue[j], queue[j+1] = queue[j+1], queue[j]  
 
 def seeDoctor():
     if len(queue)<1:
@@ -22,19 +22,17 @@ def printQueue():
     print(queue)
 
 
-with open("input4.txt", "r") as fp:
-    while(True):
-        try:
-            inp = fp.readline()
-            print(inp)
-            # if inp == "see doctor":
-            #     seeDoctor()
-            # else:
-            #     enque(inp)
-        except EOFError:
-            # lines_str = '\n'.join(lines)
-            # print(lines_str)
+with open("input4.txt", "r") as file_in:
 
-            break
+
+    temp = file_in.read().splitlines()
+
+    for i in temp:
+        if i == 'see doctor':
+            seeDoctor()
+        else:
+            enque(i)
+    
+
 
 
