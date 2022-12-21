@@ -1,4 +1,4 @@
-### All about graph
+# All about graph
 
 ## Graph Traversal
 1. BFS (Breadth First Search)

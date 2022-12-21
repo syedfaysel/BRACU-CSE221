@@ -17,9 +17,6 @@ int visited[100];
 // s = start vertex, n = number of vertices
 void bfs(int s, int n){
 
-	// make all node unvisited
-	for (int i = 0; i <= n; i++) visited[i] = 0;
-
 	queue<int> Q;
 	Q.push(s);
 	visited[s] = 1;
@@ -51,7 +48,8 @@ int main(){
 
 	int n, m;
 	cin >> n >> m;
-
+	// mark all vertices unvisited
+	for (int i = 0; i <= n; i++) visited[i] = 0;
 	int u, v;
 	for (int i = 0; i < m; i++){
 		cin >> u >> v;
